@@ -1,0 +1,142 @@
+{
+  "version": 4,
+  "terraform_version": "1.10.5",
+  "serial": 11,
+  "lineage": "41d04e72-415b-fcca-7a18-d2faf3d4d9b5",
+  "outputs": {},
+  "resources": [
+    {
+      "mode": "managed",
+      "type": "aws_dynamodb_table",
+      "name": "basic-dynamodb-table",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 1,
+          "attributes": {
+            "arn": "arn:aws:dynamodb:eu-north-1:527159438172:table/GameScores",
+            "attribute": [
+              {
+                "name": "GameTitle",
+                "type": "S"
+              },
+              {
+                "name": "TopScore",
+                "type": "N"
+              },
+              {
+                "name": "UserId",
+                "type": "S"
+              }
+            ],
+            "billing_mode": "PROVISIONED",
+            "deletion_protection_enabled": false,
+            "global_secondary_index": [
+              {
+                "hash_key": "GameTitle",
+                "name": "GameTitleIndex",
+                "non_key_attributes": [
+                  "UserId"
+                ],
+                "on_demand_throughput": [],
+                "projection_type": "INCLUDE",
+                "range_key": "TopScore",
+                "read_capacity": 10,
+                "write_capacity": 10
+              }
+            ],
+            "hash_key": "UserId",
+            "id": "GameScores",
+            "import_table": [],
+            "local_secondary_index": [],
+            "name": "GameScores",
+            "on_demand_throughput": [],
+            "point_in_time_recovery": [
+              {
+                "enabled": false
+              }
+            ],
+            "range_key": "GameTitle",
+            "read_capacity": 20,
+            "replica": [],
+            "restore_date_time": null,
+            "restore_source_name": null,
+            "restore_source_table_arn": null,
+            "restore_to_latest_time": null,
+            "server_side_encryption": [],
+            "stream_arn": "",
+            "stream_enabled": false,
+            "stream_label": "",
+            "stream_view_type": "",
+            "table_class": "STANDARD",
+            "tags": {
+              "Environment": "production",
+              "Name": "dynamodb-table-1"
+            },
+            "tags_all": {
+              "Environment": "production",
+              "Name": "dynamodb-table-1"
+            },
+            "timeouts": null,
+            "ttl": [
+              {
+                "attribute_name": "TimeToExist",
+                "enabled": true
+              }
+            ],
+            "write_capacity": 20
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxODAwMDAwMDAwMDAwLCJkZWxldGUiOjYwMDAwMDAwMDAwMCwidXBkYXRlIjozNjAwMDAwMDAwMDAwfSwic2NoZW1hX3ZlcnNpb24iOiIxIn0="
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_dynamodb_table_item",
+      "name": "item1",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "hash_key": "UserId",
+            "id": "GameScores|UserId|12345|Chess",
+            "item": "{\r\n  \"UserId\": {\"S\": \"12345\"},\r\n  \"GameTitle\": {\"S\": \"Chess\"},\r\n  \"TopScore\": {\"N\": \"2000\"},\r\n  \"Status\": {\"S\": \"Pending\"},\r\n  \"CreatedAt\": {\"S\": \"2025-02-11T10:00:00Z\"}\r\n}\r\n",
+            "range_key": "GameTitle",
+            "table_name": "GameScores"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_dynamodb_table.basic-dynamodb-table"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "aws_dynamodb_table_item",
+      "name": "item2",
+      "provider": "provider[\"registry.terraform.io/hashicorp/aws\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "hash_key": "UserId",
+            "id": "GameScores|UserId|67890|hockey",
+            "item": "{\r\n  \"UserId\": {\"S\": \"67890\"},\r\n  \"GameTitle\": {\"S\": \"hockey\"},\r\n  \"TopScore\": {\"N\": \"3500\"},\r\n  \"Status\": {\"S\": \"Completed\"},\r\n  \"CreatedAt\": {\"S\": \"2025-02-11T12:00:00Z\"}\r\n}\r\n",
+            "range_key": "GameTitle",
+            "table_name": "GameScores"
+          },
+          "sensitive_attributes": [],
+          "private": "bnVsbA==",
+          "dependencies": [
+            "aws_dynamodb_table.basic-dynamodb-table"
+          ]
+        }
+      ]
+    }
+  ],
+  "check_results": null
+}
